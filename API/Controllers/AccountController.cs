@@ -19,7 +19,7 @@ public class AccountController(IUserRepository userRepository, IUserService user
     {
       await userRepository.Add(new User()
       {
-        Role = model.Role ?? "Buyer", SupabaseId = model.SupabaseId, Username = model.SupabaseId
+        Role = model.Role ?? "buyer", SupabaseId = model.SupabaseId, Username = model.SupabaseId
       });
       return Ok(new { Token = userService.GenerateToken(model.SupabaseId, model.Role), Message="Register Successfully", });
     }
