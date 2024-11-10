@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "cciAqA091H3nNbGEzaQsNykgr1Npk3zLqkdE3LYsaKRWLU0epeq+PcgVLD+bxpCPfyw/7y17Un/y24lW1yk8gg==",
+  "dgSpecHash": "4KUYFKlCdZvgYsvD72W0xk3P99puLzlM0hilJdcbOm9TjK3seAxl3+qUj1GXhH6ohruwhN1YHsqult/FMvqTgw==",
   "success": true,
-  "projectFilePath": "/Users/vuquocviet/Projects/EBay_Clone_Final_Assigment/API/API.csproj",
+  "projectFilePath": "/Users/vuquocviet/RiderProjects/EBay_FinalAssigment/API/API.csproj",
   "expectedPackageFiles": [
     "/Users/vuquocviet/.nuget/packages/azure.core/1.38.0/azure.core.1.38.0.nupkg.sha512",
     "/Users/vuquocviet/.nuget/packages/azure.identity/1.11.4/azure.identity.1.11.4.nupkg.sha512",

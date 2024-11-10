@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "/Users/vuquocviet/Projects/EBay_Clone_Final_Assigment/API/API.csproj": {}
+    "/Users/vuquocviet/RiderProjects/EBay_FinalAssigment/API/API.csproj": {}
   },
   "projects": {
-    "/Users/vuquocviet/Projects/EBay_Clone_Final_Assigment/API/API.csproj": {
+    "/Users/vuquocviet/RiderProjects/EBay_FinalAssigment/API/API.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/Users/vuquocviet/Projects/EBay_Clone_Final_Assigment/API/API.csproj",
+        "projectUniqueName": "/Users/vuquocviet/RiderProjects/EBay_FinalAssigment/API/API.csproj",
         "projectName": "API",
-        "projectPath": "/Users/vuquocviet/Projects/EBay_Clone_Final_Assigment/API/API.csproj",
+        "projectPath": "/Users/vuquocviet/RiderProjects/EBay_FinalAssigment/API/API.csproj",
         "packagesPath": "/Users/vuquocviet/.nuget/packages/",
-        "outputPath": "/Users/vuquocviet/Projects/EBay_Clone_Final_Assigment/API/obj/",
+        "outputPath": "/Users/vuquocviet/RiderProjects/EBay_FinalAssigment/API/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "/Users/vuquocviet/.nuget/NuGet/NuGet.Config"
