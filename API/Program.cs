@@ -1,4 +1,5 @@
 using System.Text;
+using Amazon.S3;
 using API.BU.Services;
 using API.Data;
 using API.Data.Models;
@@ -30,6 +31,11 @@ builder.Services.AddControllers().AddOData(options =>
 
 builder.Services.AddRepository();
 builder.Services.AddBu();
+builder.Services.AddSingleton<IAmazonS3>(sp =>
+{
+  var awsOptions = builder.Configuration.GetSection("AWS").Get<AwsOptions>();
+  return new AmazonS3Client(awsOptions.AccessKey, awsOptions.SecretKey, Amazon.RegionEndpoint.GetBySystemName(awsOptions.Region));
+});
 var jwtSettings = builder.Configuration.GetSection("JwtSettings");
 builder.Services.AddAuthentication(options =>
        {

@@ -1,19 +1,49 @@
+using Amazon.S3;
+using Amazon.S3.Model;
 using API.BU.Services.Interfaces;
 using API.Data.Models;
 using API.Data.Repositories.Interfaces;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Options;
 
 namespace API.Controllers;
 
 [ApiController]
 [Route("api/products")]
-public class ProductController(IProductService service, IProductRepository repository) : ControllerBase
+public class ProductController(
+  IAmazonS3 s3Client,
+  IOptions<AwsOptions> awsOptions,
+  IProductService service,
+  IProductRepository repository
+)
+  : ControllerBase
 {
+  private readonly string _bucketName = awsOptions.Value.BucketName;
+
   [HttpGet] public async Task<IActionResult> GetProducts()
   {
-    var products = await repository.GetAll();
-    return Ok(products);
+    try
+    {
+      var products = await repository.GetAllQueryable().ToListAsync();
+      foreach (var product in products)
+      {
+        var request = new GetPreSignedUrlRequest
+        {
+          BucketName = _bucketName, Key = product.Url, Expires = DateTime.UtcNow.AddHours(1)
+        };
+        product.Url = await s3Client.GetPreSignedURLAsync(request);
+      }
+
+      return Ok(products);
+    }
+    catch (Exception ex)
+    {
+      Console.WriteLine("Error: " + ex.Message);
+      return StatusCode(400, "Something went wrong");
+    }
   }
+
   [HttpGet("{id}")] public async Task<IActionResult> GetProduct(int id)
   {
     var product = await repository.GetById(id);
