@@ -21,11 +21,42 @@ public class AccountController(IUserRepository userRepository, IUserService user
       {
         Role = model.Role ?? "Buyer", SupabaseId = model.SupabaseId, Username = model.SupabaseId
       });
-      return Ok(new { Token = userService.GenerateToken(model.SupabaseId, model.Role), Message="Register Successfully", });
+      return Ok(new
+      {
+        Token = userService.GenerateToken(model.SupabaseId, model.Role), Message = "Register Successfully",
+      });
     }
 
     var token = userService.GenerateToken(user.SupabaseId, user.Role);
     return Ok(new { Token = token });
+  }
+
+  [HttpPost("registering-vendor/{userId}")]
+  public async Task<IActionResult> ToBeVendor(string userId)
+  {
+    try
+    {
+      var user = await userRepository.GetAllQueryable().FirstOrDefaultAsync(u => u.SupabaseId == userId);
+      if (user is null)
+      {
+        await userRepository.Add(new User() { Role = "vendor", SupabaseId = userId, Username = userId, });
+      }
+      else
+      {
+        user.Role = "vendor";
+        await userRepository.Update(user);
+      }
+
+      return Ok(new { isVendor = true, });
+    }
+    catch { return Ok(new { isVendor = false, }); }
+  }
+
+  [HttpPost("is-vendor/{userId}")] public async Task<IActionResult> IsVendor(string userId)
+  {
+    var user = await userRepository.GetAllQueryable()
+                                   .FirstOrDefaultAsync(u => u.SupabaseId == userId && u.Role == "vendor");
+    return Ok(user is null ? new { isVendor = false, } : new { isVendor = true, });
   }
 }
 

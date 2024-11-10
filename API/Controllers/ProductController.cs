@@ -14,6 +14,11 @@ public class ProductController(IProductService service, IProductRepository repos
     var products = await repository.GetAll();
     return Ok(products);
   }
+  [HttpGet("{id}")] public async Task<IActionResult> GetProduct(int id)
+  {
+    var product = await repository.GetById(id);
+    return Ok(product);
+  }
 
   [HttpPost("create")] public async Task<IActionResult> CreateProduct(ProductRequest productRequest)
   {
