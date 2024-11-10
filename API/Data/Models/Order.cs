@@ -1,35 +1,34 @@
+﻿using System;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace API.Data.Models;
+namespace API.Data.Models
+{
+    public class Order
+    {
+        [Key]
+        public int Id { get; set; }
 
-public class Order
-{ public int Id { get; set; }
+        [Required]
+        public string StripeId { get; set; }  // ID thanh toán từ Stripe
 
-  [MaxLength(225)]
-  public string Title { get; set; }
+        [Required]
+        public int UserId { get; set; }  // ID người dùng đã đặt hàng
 
-  [MaxLength(100)]
-  public string Name { get; set; }
+        [Required]
+        [Column(TypeName = "decimal(18, 2)")]
+        public decimal Total { get; set; }  // Tổng tiền của đơn hàng
 
-  [MaxLength(550)]
-  public string Address { get; set; }
+        [Required]
+        public DateTime CreatedAt { get; set; } = DateTime.Now;  // Thời gian tạo đơn hàng
 
-  [MaxLength(20)]
-  public string Zipcode { get; set; }
+        // Thông tin địa chỉ giao hàng
+        public string Name { get; set; }
+        public string Address { get; set; }
+        public string Zipcode { get; set; }
+        public string City { get; set; }
+        public string Country { get; set; }
 
-  [MaxLength(100)]
-  public string City { get; set; }
-
-  [MaxLength(100)]
-  public string Country { get; set; }
-
-  [ForeignKey("User")]
-  public int UserId { get; set; }
-
-  [Column(TypeName = "decimal(18, 2)")]
-  public decimal Total { get; set; }
-
-  public DateTime CreateAt { get; set; } = DateTime.Now;
-  public User User { get; set; }
+    }
 }
