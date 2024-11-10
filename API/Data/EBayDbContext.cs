@@ -7,6 +7,7 @@ public class EBayDbContext(DbContextOptions<EBayDbContext> options) : DbContext(
 {
   public DbSet<User> Users { get; set; }
   public DbSet<Product> Products { get; set; }
+   public DbSet<Address> Addresss { get; set; }
 
   protected override void OnModelCreating(ModelBuilder builder)
   {
