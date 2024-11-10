@@ -10,5 +10,6 @@ public static class RepositoryOptionCollection
     serviceCollection.AddTransient<IUserRepository, UserRepository>();
     serviceCollection.AddTransient<IProductRepository, ProductRepository>();
     serviceCollection.AddTransient<IAddressRepository, AddressRepository>();
+        serviceCollection.AddTransient<IOrderRepository, OrderRepository>();
   }
 }

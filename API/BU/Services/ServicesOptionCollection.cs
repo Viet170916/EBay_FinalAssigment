@@ -10,6 +10,7 @@ public static class ServicesOptionCollection
   {
     serviceCollection.AddTransient<IUserService, UserService>();
     serviceCollection.AddTransient<IProductService, ProductService>();
-    serviceCollection.AddTransient<IAddressService, AddressService>();
-  }
+        serviceCollection.AddTransient<IAddressService, AddressService>();
+        serviceCollection.AddTransient<IOrderService, OrderService>();
+    }
 }

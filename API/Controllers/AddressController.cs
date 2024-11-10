@@ -57,14 +57,14 @@ namespace API.Controllers
         }
     }
 
-    public class AddressRequest
-    {
-        public int? Id { get; set; }
-        public string Name { get; set; }
-        public string AddressLine { get; set; }
-        public string Zipcode { get; set; }
-        public string City { get; set; }
-        public string Country { get; set; }
-        public int UserId { get; set; }
-    }
+}
+public class AddressRequest
+{
+    public int? Id { get; set; }
+    public string Name { get; set; }
+    public string AddressLine { get; set; }
+    public string Zipcode { get; set; }
+    public string City { get; set; }
+    public string Country { get; set; }
+    public int UserId { get; set; }
 }
