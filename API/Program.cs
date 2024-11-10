@@ -9,6 +9,7 @@ using Microsoft.AspNetCore.OData;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.OData.ModelBuilder;
+using Stripe;
 
 var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddCors(options =>
@@ -31,6 +32,7 @@ builder.Services.AddControllers().AddOData(options =>
 
 builder.Services.AddRepository();
 builder.Services.AddBu();
+StripeConfiguration.ApiKey = builder.Configuration["Stripe:SecretKey"];
 builder.Services.AddSingleton<IAmazonS3>(sp =>
 {
   var awsOptions = builder.Configuration.GetSection("AWS").Get<AwsOptions>();
