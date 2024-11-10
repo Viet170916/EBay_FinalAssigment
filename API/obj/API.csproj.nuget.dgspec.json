@@ -1,27 +1,25 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\dell\\OneDrive\\Máy tính\\FPT\\Ky9\\EBay_FinalAssigment\\API\\API.csproj": {}
+    "/Users/vuquocviet/RiderProjects/EBay_FinalAssigment/API/API.csproj": {}
   },
   "projects": {
-    "C:\\Users\\dell\\OneDrive\\Máy tính\\FPT\\Ky9\\EBay_FinalAssigment\\API\\API.csproj": {
+    "/Users/vuquocviet/RiderProjects/EBay_FinalAssigment/API/API.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\dell\\OneDrive\\Máy tính\\FPT\\Ky9\\EBay_FinalAssigment\\API\\API.csproj",
+        "projectUniqueName": "/Users/vuquocviet/RiderProjects/EBay_FinalAssigment/API/API.csproj",
         "projectName": "API",
-        "projectPath": "C:\\Users\\dell\\OneDrive\\Máy tính\\FPT\\Ky9\\EBay_FinalAssigment\\API\\API.csproj",
-        "packagesPath": "C:\\Users\\dell\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\dell\\OneDrive\\Máy tính\\FPT\\Ky9\\EBay_FinalAssigment\\API\\obj\\",
+        "projectPath": "/Users/vuquocviet/RiderProjects/EBay_FinalAssigment/API/API.csproj",
+        "packagesPath": "/Users/vuquocviet/.nuget/packages/",
+        "outputPath": "/Users/vuquocviet/RiderProjects/EBay_FinalAssigment/API/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\dell\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+          "/Users/vuquocviet/.nuget/NuGet/NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net8.0"
         ],
         "sources": {
-          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -34,17 +32,16 @@
           "warnAsError": [
             "NU1605"
           ]
-        },
-        "restoreAuditProperties": {
-          "enableAudit": "true",
-          "auditLevel": "low",
-          "auditMode": "direct"
         }
       },
       "frameworks": {
         "net8.0": {
           "targetAlias": "net8.0",
           "dependencies": {
+            "AWSSDK.S3": {
+              "target": "Package",
+              "version": "[3.7.405.11, )"
+            },
             "EFCore.BulkExtensions": {
               "target": "Package",
               "version": "[8.1.1, )"
@@ -95,7 +92,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.401/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/8.0.303/PortableRuntimeIdentifierGraph.json"
         }
       }
     }
