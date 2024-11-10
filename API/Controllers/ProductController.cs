@@ -17,7 +17,7 @@ public class ProductController(IProductService service, IProductRepository repos
 
   [HttpPost("create")] public async Task<IActionResult> CreateProduct(ProductRequest productRequest)
   {
-    Product product = new Product()
+    var product = new Product()
     {
       Title = productRequest.Title,
       Description = productRequest.Description,
@@ -27,6 +27,26 @@ public class ProductController(IProductService service, IProductRepository repos
     };
     await repository.Add(product);
     return Ok(new { Message = "Create Successfully", });
+  }
+
+  [HttpPut("update")] public async Task<IActionResult> UpdateProduct(ProductRequest productRequest)
+  {
+    var product = new Product()
+    {
+      Title = productRequest.Title,
+      Description = productRequest.Description,
+      UserId = productRequest.UserId,
+      Url = productRequest.Url,
+      Price = productRequest.Price,
+    };
+    await repository.Update(product);
+    return Ok(new { Message = "Update Successfully", });
+  }
+
+  [HttpDelete("delete")] public async Task<IActionResult> DeleteProduct(int productId)
+  {
+    await repository.Remove(productId);
+    return Ok(new { Message = "Delete Successfully", });
   }
 }
 

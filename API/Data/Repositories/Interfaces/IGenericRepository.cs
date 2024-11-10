@@ -11,6 +11,7 @@ namespace API.Data.Repositories.Interfaces
     Task<int> Update(T entity);
     Task<int> AddRange(IEnumerable<T> entities);
     Task<int> Remove(T entity);
+    Task<int> Remove(int id);
     Task<int> RemoveRange(IEnumerable<T> entities);
     IQueryable<T> GetAllQueryable();
     IQueryable<T> FindQueryable(Expression<Func<T, bool>> expression);

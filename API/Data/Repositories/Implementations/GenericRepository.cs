@@ -66,6 +66,13 @@ namespace API.Data.Repositories.Implementations
       return await Context.SaveChangesAsync().ConfigureAwait(false);
     }
 
+    public virtual async Task<int> Remove(int id)
+    {
+      var entity = await Context.Set<T>().FindAsync(id);
+      if (entity != null) Context.Set<T>().Remove(entity);
+      return await Context.SaveChangesAsync().ConfigureAwait(false);
+    }
+
     public virtual async Task<int> RemoveRange(IEnumerable<T> entities)
     {
       Context.Set<T>().RemoveRange(entities);
