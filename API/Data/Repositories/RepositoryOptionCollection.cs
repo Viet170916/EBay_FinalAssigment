@@ -8,5 +8,6 @@ public static class RepositoryOptionCollection
   public static void AddRepository(this IServiceCollection serviceCollection)
   {
     serviceCollection.AddTransient<IUserRepository, UserRepository>();
+    serviceCollection.AddTransient<IProductRepository, ProductRepository>();
   }
 }

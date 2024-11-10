@@ -10,27 +10,16 @@ public class Product
   [MaxLength(225)]
   public string Title { get; set; }
 
-  [MaxLength(100)]
-  public string Name { get; set; }
-
-  [MaxLength(550)]
-  public string Address { get; set; }
-
-  [MaxLength(20)]
-  public string Zipcode { get; set; }
-
-  [MaxLength(100)]
-  public string City { get; set; }
-
-  [MaxLength(100)]
-  public string Country { get; set; }
-
-  [ForeignKey("User")]
-  public string UserId { get; set; }
+  public string? Description { get; set; }
+  public string Url { get; set; }
 
   [Column(TypeName = "decimal(18, 2)")]
-  public decimal Total { get; set; }
+  public decimal Price { get; set; }
 
   public DateTime CreateAt { get; set; } = DateTime.Now;
-  public User User { get; set; }
+
+  [ForeignKey("User")]
+  public int? UserId { get; set; }
+
+  public User? User { get; set; }
 }

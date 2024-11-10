@@ -9,7 +9,7 @@ using Microsoft.EntityFrameworkCore;
 namespace API.Controllers;
 
 [ApiController]
-[Route("api/[controller]")]
+[Route("api/account")]
 public class AccountController(IUserRepository userRepository, IUserService userService) : ControllerBase
 {
   [HttpPost("login")] public async Task<IActionResult> Login([FromBody] LoginModel model)
