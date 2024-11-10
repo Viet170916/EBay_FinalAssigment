@@ -15,9 +15,27 @@ public class ProductController(IProductService service, IProductRepository repos
     return Ok(products);
   }
 
-  [HttpPost] public async Task<IActionResult> CreateProduct(Product product)
+  [HttpPost("create")] public async Task<IActionResult> CreateProduct(ProductRequest productRequest)
   {
+    Product product = new Product()
+    {
+      Title = productRequest.Title,
+      Description = productRequest.Description,
+      UserId = productRequest.UserId,
+      Url = productRequest.Url,
+      Price = productRequest.Price,
+    };
     await repository.Add(product);
-    return Ok();
+    return Ok(new { Message = "Create Successfully", });
   }
+}
+
+public class ProductRequest
+{
+  public int? Id { get; set; }
+  public string Title { get; set; }
+  public string? Description { get; set; }
+  public string Url { get; set; }
+  public decimal Price { get; set; }
+  public int? UserId { get; set; }
 }
