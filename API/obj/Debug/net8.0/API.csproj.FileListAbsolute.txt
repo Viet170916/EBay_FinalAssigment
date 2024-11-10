@@ -181,3 +181,5 @@
 /Users/vuquocviet/RiderProjects/EBay_FinalAssigment/API/obj/Debug/net8.0/API.pdb
 /Users/vuquocviet/RiderProjects/EBay_FinalAssigment/API/obj/Debug/net8.0/API.genruntimeconfig.cache
 /Users/vuquocviet/RiderProjects/EBay_FinalAssigment/API/obj/Debug/net8.0/ref/API.dll
+/Users/vuquocviet/RiderProjects/EBay_FinalAssigment/API/bin/Debug/net8.0/AWSSDK.Core.dll
+/Users/vuquocviet/RiderProjects/EBay_FinalAssigment/API/bin/Debug/net8.0/AWSSDK.S3.dll
